@@ -2,7 +2,7 @@
 ## Final Project CNE 370 ( Real_world_project)
 
 
-## Introduction 
+### Introduction 
 This project utilizes docker-compose containers running MaxScale to create a sharded SQL database containing zipcode information. A python script is then used to connect, query, and demonstrate the merged database.
 ## MariaDB MaxScale Docker image
 
@@ -48,18 +48,8 @@ curl -u admin:mariadb -H "Content-Type: application/json" http://localhost:8989/
 The MaxScale docker-compose setup contains MaxScale configured with a three node master-slave cluster. To start it, run the following commands in this directory.
 ```
 docker-compose build
-docker-compose up -d
 ```
 After MaxScale and the servers have started (takes a few minutes), you can find the readwritesplit router on port 4006 and the readconnroute on port 4008. The user maxuser with the password maxpwd can be used to test the cluster. Assuming the mariadb client is installed on the host machine:
-
-
-
-## maxscale.cnf
-This file configures your MaxScale instance. Docker-compose.yml calls upon this file to build the MaxScale container.
-
-## Shard_query.py
-This is the Python script. You can configure it to retrieve specific data from the database.
-
 ## Building Container and Running Code
 Go into the /maxscale directory and run the following to build your containers
 ```
@@ -69,6 +59,14 @@ Confirm that your containers have been successfully built. You should see the co
 ```
 sudo docker-compose ps
 ```
+
+## maxscale.cnf
+This file configures your MaxScale instance. Docker-compose.yml calls upon this file to build the MaxScale container.
+
+## Shard_query.py
+This is the Python script. You can configure it to retrieve specific data from the database.
+
+
 ```
 $ mysql -umaxuser -pmaxpwd -h 127.0.0.1 -P 4006 test
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
