@@ -45,7 +45,7 @@ docker run -d -p 8989:8989 --name mxs mariadb/maxscale:latest
 curl -u admin:mariadb -H "Content-Type: application/json" http://localhost:8989/v1/services
 ```
 ### MaxScale docker-compose setup
-([The MaxScale docker-compose setup ])contains MaxScale configured with a three node master-slave cluster. To start it, run the following commands in this directory.
+[The MaxScale docker-compose setup ]contains MaxScale configured with a three node master-slave cluster. To start it, run the following commands in this directory.
 ```
 docker-compose build
 ```
