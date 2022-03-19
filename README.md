@@ -4,19 +4,19 @@
 
 ### Introduction 
 This project utilizes docker-compose containers running MaxScale to create a sharded SQL database containing zipcode information. A python script is then used to connect, query, and demonstrate the merged database.
-## MariaDB MaxScale Docker image
+### MariaDB MaxScale Docker image
 
 This Docker image runs the latest 2.4 version of MariaDB MaxScale.
 
 
-## Building
+### Building
 
 Run the following command in this directory to build the image.
 
 ```
 make build-image
 ```
-## Running
+### Running
 To pull the latest MaxScale image from docker hub:
 ```
 docker pull mariadb/maxscale:latest
@@ -26,7 +26,7 @@ To run the MaxScale container overriding the container instance name to 'mxs':
 docker run -d --name mxs mariadb/maxscale:latest
 ```
 
-## Configuration
+### Configuration
 
 ```
 docker-compose.yml
@@ -38,19 +38,19 @@ The default configuration for the container is fairly minimalist and can be foun
 
 REST API with default user and password (admin / mariadb) listening to all hosts (0.0.0.0)
 
-## Configure via REST API
+### Configure via REST API
 The REST API by default listens on port 8989. To interact with this from the docker host, requires a port mapping to specified on container startup. The example below shows listing the current services via curl:
 ```
 docker run -d -p 8989:8989 --name mxs mariadb/maxscale:latest
 curl -u admin:mariadb -H "Content-Type: application/json" http://localhost:8989/v1/services
 ```
-## MaxScale docker-compose setup
+### MaxScale docker-compose setup
 The MaxScale docker-compose setup contains MaxScale configured with a three node master-slave cluster. To start it, run the following commands in this directory.
 ```
 docker-compose build
 ```
 After MaxScale and the servers have started (takes a few minutes), you can find the readwritesplit router on port 4006 and the readconnroute on port 4008. The user maxuser with the password maxpwd can be used to test the cluster. Assuming the mariadb client is installed on the host machine:
-## Building Container and Running Code
+### Building Container and Running Code
 Go into the /maxscale directory and run the following to build your containers
 ```
 sudo docker-compose up -d
@@ -60,10 +60,10 @@ Confirm that your containers have been successfully built. You should see the co
 sudo docker-compose ps
 ```
 
-## maxscale.cnf
+### maxscale.cnf
 This file configures your MaxScale instance. Docker-compose.yml calls upon this file to build the MaxScale container.
 
-## Shard_query.py
+### Shard_query.py
 This is the Python script. You can configure it to retrieve specific data from the database.
 
 
@@ -80,7 +80,7 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 MySQL [test]>
 ```
 
-## Install python3 and pymysql
+### Install python3 and pymysql
 ```
 sudo apt-get install python3.6
 ```
@@ -94,7 +94,7 @@ Go into the /maxscale-docker directory and run the following to execute the pyth
 python3 Shard_query.py 
 
 ```
-## python code 
+### python code 
 ```
 A python script is then used to connect, query, and demonstrate the merged database.
 ```
