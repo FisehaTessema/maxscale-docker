@@ -3,6 +3,7 @@
 #date 03/19/2022
 #class CNE 370 
 # source of python code 
+# A python script is then used to connect, query, and demonstrate the merged database.
 
 # https://www.digitalocean.com/community/tutorials/how-to-store-and-retrieve-data-in-mariadb-using-python-on-ubuntu-18-04
 
