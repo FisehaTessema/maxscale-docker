@@ -1,14 +1,14 @@
 #Name Fiseha Tessema
-#Email. fmtessema@student.rtc.edu
-#date 03/19/2022
-#class CNE 370 
+#E-mail(fmtessema@student.rtc.edu)
+#Date 03/19/2022
+#Class2022 CNE 370 
 # source of python code 
 # A python script is then used to connect, query, and demonstrate the merged database.
-
+# Code Sourching 
 # https://www.digitalocean.com/community/tutorials/how-to-store-and-retrieve-data-in-mariadb-using-python-on-ubuntu-18-04
-
 #https://realpython.com/python-mysql/
 
+#!/usr/bin/python
 
 import pymysql
 
