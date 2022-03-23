@@ -178,11 +178,16 @@ The smallest zipcode number in zipcodes_two is:
 ```
 ```
 [Sourcing] (https://www.mongodb.com/features/database-sharding-explained)
-```
-```
-# Dear Nikita Chagay 
+           (https://github.com/LunarPhobia/Real_world_project_CNE370)
+	   (https://www.digitalocean.com/community/tutorials/how-to-use-sharding-in-mongodb)
 ```
 
+```
+## Dear Nikita Chagay 
+```
+```
 Thank you all for your tremendous help launching the Mariadb maxscale project. Without your diligence, hard work, and several late nights and early mornings, we would not have been able to meet our deadline. And we did so much more than that: thanks to Nikita Chagay's major efforts, but with a wonderful result.Your hard work has been noticed !!
+```
+
 
 
