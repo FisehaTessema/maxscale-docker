@@ -2,6 +2,7 @@
 #E-mail(fmtessema@student.rtc.edu)
 #Date 03/19/2022
 #Class2022 CNE 370 
+# group Project ( Nikita Chagay, Fiseha Tessema)
 # source of python code 
 # A python script is then used to connect, query, and demonstrate the merged database.
 # Code Sourching 
