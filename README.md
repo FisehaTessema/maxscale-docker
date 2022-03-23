@@ -3,8 +3,7 @@
 
 
 ### Introduction 
-Sharding is a method for distributing a single dataset across multiple databases, which can then be stored on multiple machines. This allows for larger datasets to be split in smaller chunks and stored in multiple data nodes, increasing the total storage capacity of the system.![image](https://user-images.githubusercontent.com/57963244/159747585-1e0a7aa1-d29f-4f0d-8fef-8160739eccca.png)
-docker-compose containers running MaxScale to create a sharded SQL database containing zipcode information. A python script is then used to connect, query, and demonstrate the merged database.
+Sharding is a method for distributing a single dataset across multiple databases, which can then be stored on multiple machines. This allows for larger datasets to be split in smaller chunks and stored in multiple data nodes, increasing the total storage capacity of the system.in this project we use docker-compose containers running MaxScale to create a sharded SQL database containing zipcodes information and writing a python script that used to connect, query, and demonstrate the merged database.
 ### MariaDB MaxScale Docker image
 
 This Docker image runs the latest 2.4 version of MariaDB MaxScale.
