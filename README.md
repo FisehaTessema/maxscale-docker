@@ -3,7 +3,7 @@
 
 
 ### Introduction 
-Sharding is a method for distributing a single dataset across multiple databases, which can then be stored on multiple machines. This allows for larger datasets to be split in smaller chunks and stored in multiple data nodes, increasing the total storage capacity of the system.in this project we use docker-compose containers running MaxScale to create a sharded SQL database containing zipcodes information and writing a python script that used to connect, query, and demonstrate the merged database.
+Sharding is a method for distributing a single dataset across multiple databases, which can then be stored on multiple machines. This allows for larger datasets to be split in smaller chunks and stored in multiple data nodes, increasing the total storage capacity of the system.In this project we are going to build an APP using docker-compose containers running MaxScale to create a sharded SQL database containing zipcodes information and writing a python script that used to connect, query, and demonstrate the merged database.
 ### MariaDB MaxScale Docker image
 
 This Docker image runs the latest 2.4 version of MariaDB MaxScale.
@@ -177,9 +177,9 @@ The smallest zipcode number in zipcodes_two is:
 (38257,)
 ```
 ```
-[Sourcing] (https://www.mongodb.com/features/database-sharding-explained)
-           (https://github.com/LunarPhobia/Real_world_project_CNE370)
-	   (https://www.digitalocean.com/community/tutorials/how-to-use-sharding-in-mongodb)
+[Sourcing] ((https://www.mongodb.com/features/database-sharding-explained)
+           (https://github.com/LunarPhobia/Real_world_project_CNE370)	   
+	   (https://www.digitalocean.com/community/tutorials/how-to-use-sharding-in-mongodb))
 ```
 
 ```
