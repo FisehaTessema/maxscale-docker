@@ -6,6 +6,7 @@
 # source of python code 
 # A python script is then used to connect, query, and demonstrate the merged database.
 # Code Sourching 
+# https://github.com/LunarPhobia/Real_world_project_CNE370
 # https://www.digitalocean.com/community/tutorials/how-to-store-and-retrieve-data-in-mariadb-using-python-on-ubuntu-18-04
 #https://realpython.com/python-mysql/
 
