@@ -176,5 +176,9 @@ The smallest zipcode number in zipcodes_two is:
 ```
 (38257,)
 ```
-# sourcing 
+sourcing 
 (https://www.mongodb.com/features/database-sharding-explained)
+# Dear Nikita , 
+Thank you all for your tremendous help launching the Mariadb maxscale project. Without your diligence, hard work, and several late nights and early mornings, we would not have been able to meet our deadline. And we did so much more than that: thanks to Nikita Chagay's major efforts, but with a wonderful result.Your hard work has been noticed !!
+
+
