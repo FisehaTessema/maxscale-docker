@@ -1,5 +1,5 @@
 
-## Final Project CNE 370 ( Real_world_project)
+## Final group Project CNE 370
 
 
 ### Introduction 
