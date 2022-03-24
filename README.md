@@ -64,7 +64,24 @@ sudo docker-compose ps
 This file configures your MaxScale instance. Docker-compose.yml calls upon this file to build the MaxScale container.
 
 ### Shard_query.py
-This is the Python script. You can configure it to retrieve specific data from the database.
+This is the Python script for this specific project . we need to configure it to retrieve specific data from the database.
+
+### Checking UFW Status and Rules
+
+At any time, you can check the status of UFW with this command:
+```
+sudo ufw status verbose
+```
+If UFW is active, the output will say that it’s active and it will list any rules that are set. For example, if the firewall is set to allow SSH (port 22) connections from anywhere, the output might look something like this:
+```
+Numbered Output:
+Status: active
+
+     To                         Action      From
+     --                         ------      ----
+[ 1] 22                         ALLOW IN    15.15.15.0/24
+[ 2] 80                         ALLOW IN    Anywhere
+```
 
 
 ```
