@@ -3,20 +3,37 @@
 
 
 ### Introduction 
+
+MaxScale is designed to provide load balancing and high availability functionality transparently to the applications. In addition it provides a highly scalable and flexible architecture, with plugin components to support different protocols and routing decisions.
+
 Sharding is a method for distributing a single dataset across multiple databases, which can then be stored on multiple machines. This allows for larger datasets to be split in smaller chunks and stored in multiple data nodes, increasing the total storage capacity of the system.In this project we are going to build an APP using docker-compose containers running MaxScale to create a sharded SQL database containing zipcodes information and writing a python script that used to connect, query, and demonstrate the merged database.
-### MariaDB MaxScale Docker image
+[For a detailed overview of what MaxScale can do](https://mariadb.com/products/enterprise/components/#maxscale)
 
-This Docker image runs the latest 2.4 version of MariaDB MaxScale.
+### Step 1 — Installing Docker Compose
+To make sure you obtain the most updated stable version of Docker Compose, you’ll download this software from its [official Github repository](https://github.com/docker/compose)
+
+Python installed on your server. Follow our [How To Install Python and Set Up a Programming Environment tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-python-3-and-set-up-a-local-programming-environment-on-ubuntu-18-04).
+
+MariaDB installed on your server. Follow our [How To Install MariaDB tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-mariadb-on-ubuntu-18-04), Make sure to note your authorization credentials (username and password), because you will use that later in the tutorial.
+
+### step 2 - MariaDB MaxScale Installation 
+
+MariaDB MaxScale is an open-source, database-centric proxy that works with MariaDB Enterprise, MariaDB Enterprise Cluster, MariaDB 5.5, MariaDB 10 and Oracle MySQL®.[Maxscale-docker](https://mariadb.com/products/enterprise/components/#maxscale).
 
 
-### Building
 
+### Grab Maxscale Container
+* [git clone](https://github.com/zohan/maxscale-docker/)
+* cd maxscale-docker/maxscale
+* docker-compose up –d
+* You should see 4 containers start up
+
+#### Building
 Run the following command in this directory to build the image.
-
 ```
 make build-image
 ```
-### Running
+#### Running
 To pull the latest MaxScale image from docker hub:
 ```
 docker pull mariadb/maxscale:latest
@@ -26,31 +43,7 @@ To run the MaxScale container overriding the container instance name to 'mxs':
 docker run -d --name mxs mariadb/maxscale:latest
 ```
 
-### Configuration
-
-```
-docker-compose.yml
-```
-
-This file is used as a blueprint to build your docker containers. You can specify how many and what type of containers you want to build.
-
-The default configuration for the container is fairly minimalist and can be found in this configuration file. At a high level the following is enabled:
-
-REST API with default user and password (admin / mariadb) listening to all hosts (0.0.0.0)
-
-### Configure via REST API
-The REST API by default listens on port 8989. To interact with this from the docker host, requires a port mapping to specified on container startup. The example below shows listing the current services via curl:
-```
-docker run -d -p 8989:8989 --name mxs mariadb/maxscale:latest
-curl -u admin:mariadb -H "Content-Type: application/json" http://localhost:8989/v1/services
-```
-### MaxScale docker-compose setup
-The MaxScale docker-compose setup contains MaxScale configured with a three node master-slave cluster. To start it, run the following commands in this directory.
-```
-docker-compose build
-```
-After MaxScale and the servers have started (takes a few minutes), you can find the readwritesplit router on port 4006 and the readconnroute on port 4008. The user maxuser with the password maxpwd can be used to test the cluster. Assuming the mariadb client is installed on the host machine:
-### Building Container and Running Code
+#### Building Container and Running Code
 Go into the /maxscale directory and run the following to build your containers
 ```
 sudo docker-compose up -d
@@ -59,14 +52,31 @@ Confirm that your containers have been successfully built. You should see the co
 ```
 sudo docker-compose ps
 ```
+### step 3 - Configuration
 
-### maxscale.cnf
+```
+docker-compose.yml
+```
+This file is used as a blueprint to build your docker containers. You can specify how many and what type of containers you want to build.
+
+The default configuration for the container is fairly minimalist and can be found in this configuration file. At a high level the following is enabled:
+
+REST API with default user and password (admin / mariadb) listening to all hosts (0.0.0.0)
+
+#### MaxScale docker-compose setup
+The MaxScale docker-compose setup contains MaxScale configured with a three node master-slave cluster. To start it, run the following commands in this directory.
+```
+docker-compose build
+```
+After MaxScale and the servers have started (takes a few minutes), you can find the readwritesplit router on port 4006 and the readconnroute on port 4008. The user maxuser with the password maxpwd can be used to test the cluster. Assuming the mariadb client is installed on the host machine:
+
+#### maxscale.cnf
 This file configures your MaxScale instance. Docker-compose.yml calls upon this file to build the MaxScale container.
 
-### Shard_query.py
+#### Shard_query.py
 This is the Python script for this specific project . we need to configure it to retrieve specific data from the database.
 
-### Checking UFW Status and Rules
+#### Checking UFW Status and Rules
 
 At any time, you can check the status of UFW with this command:
 ```
@@ -85,7 +95,7 @@ Status: active
 
 
 ```
-$ mysql -umaxuser -pmaxpwd -h 127.0.0.1 -P 4006 test
+$ mariadb --host port 4001 -umaxuser -pmaxpwd 
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
 Your MySQL connection id is 5
 Server version: 10.2.12 2.2.9-maxscale mariadb.org binary distribution
